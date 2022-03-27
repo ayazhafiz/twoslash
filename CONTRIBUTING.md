@@ -8,7 +8,7 @@ These modules are built using test driven development, and so you can run:
 pnpm test --watch
 ```
 
-In the root of the repo to see how your changes affect the tests. Both `shiki-twoslash` and `remark-shiki-twoslash` uses a traditional unit-test style and `reamrk-shiki-twoslash` also contains an easy way to do integration-style tests where you add a markdown document to [`packages/remark-shiki-twoslash/test/fixtures`](packages/remark-shiki-twoslash/test/fixtures) and see the end result as a HTML file which you can inspect visually. 
+In the root of the repo to see how your changes affect the tests. Both `shiki-twoslash` and `remark-shiki-twoslash` uses a traditional unit-test style and `remark-shiki-twoslash` also contains an easy way to do integration-style tests where you add a markdown document to [`packages/remark-shiki-twoslash/test/fixtures`](packages/remark-shiki-twoslash/test/fixtures) and see the end result as a HTML file which you can inspect visually. 
 
 These two dependencies also use TypeScript, you can validate all of the TypeScript via `pnpm build`. 
 
