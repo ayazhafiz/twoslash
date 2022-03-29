@@ -131,7 +131,7 @@ export const setupNodeForTwoslashException = (code: string, node: Node, error: u
     <div class='twoslash-exception-message'>${body}${codeSample}</div>`
 
 
-    node.type = "html"
-    node.value =  "<div id='twoslash-error'>" + css + html + "</div>"
-    node.children = []
+    node.type = "html";
+    (node as any).value =  "<div id='twoslash-error'>" + css + html + "</div>";
+    (node as any).children = []
 }

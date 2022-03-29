@@ -5,6 +5,7 @@ import { HtmlRendererOptions, plainTextRenderer } from "./renderers/plain"
 import { defaultShikiRenderer } from "./renderers/shiki"
 import { tsconfigJSONRenderer } from "./renderers/tsconfig"
 import { Meta } from "./utils"
+import * as rust from "twoslash-rust";
 
 export interface TwoslashShikiOptions {
   /** A way to turn on the try buttons seen on the TS website */
@@ -126,6 +127,14 @@ export const runTwoSlash = (input: string, lang: string, settings: UserConfigSet
   // @ts-ignore
   if (replacer[lang]) lang = replacer[lang]
 
+  settings.customTags = ["annotate", "log", "warn", "error"]
+
+  if (lang === "rs" || lang === "rust") {
+    const result= rust.twoslasher(code, lang, settings);
+    return result;
+  }
+
+  // Default case: suppose this is TS/JS/JSX-and-friends code. 
   const hasReactImport = /^import\s+React(?:.*)\s+from\s+('|")react\1/gm
 
   // Add react import to code samples indicating they're needing react.
@@ -145,7 +154,6 @@ export const runTwoSlash = (input: string, lang: string, settings: UserConfigSet
     }
   }
 
-  settings.customTags = ["annotate", "log", "warn", "error"]
   const results = twoslasher(code, lang, settings)
   return results
 }

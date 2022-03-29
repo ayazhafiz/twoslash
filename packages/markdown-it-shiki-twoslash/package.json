@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "deasync": "^0.1.21",
-    "remark-shiki-twoslash": "3.0.9"
+    "remark-shiki-twoslash": "workspace:*"
   },
   "devDependencies": {
     "@types/deasync": "^0.1.1",
